@@ -6,6 +6,7 @@ const addTrainingForm = document.querySelector(".add-training-form");
 const addExerciseBtn = document.querySelector(".add-exercise-btn");
 const submitTrainingBtn = document.querySelector(".submit-training-btn");
 const inputAddExercise = document.querySelector(".input-add-exercise");
+
 let exercises = [];
 
 logo.addEventListener("click", ()=>{
@@ -52,7 +53,6 @@ function addTraining(){
             `;
         });
         exerciseInput.value = "";
-        console.log(exercises);
     }
 }
 
