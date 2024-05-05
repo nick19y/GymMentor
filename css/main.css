@@ -1,0 +1,60 @@
+.main-header{
+    width: 100%;
+    height: 9em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2em;
+    border-bottom: 1px solid black;
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo:hover{
+    cursor: pointer;
+}
+.right-side-header{
+    display: flex;
+    align-items: center;
+    gap: 3em;
+    margin-right: 5em;
+}
+.trainig-list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.training-item{
+    display: flex;
+    width: 20%;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em 2em;
+}
+.trainig-details{
+    margin-top: 1em;
+    border-top: 1px solid black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0 0 2em;
+}
+.select-training-btn{
+    background-color: white;
+    border-radius: 20px;
+    padding: 0.5em;
+    margin-bottom: 1.5em;
+}
+.addTrainingPlan:hover{
+    cursor: pointer;
+}
+.logout:hover{
+    cursor: pointer;
+}

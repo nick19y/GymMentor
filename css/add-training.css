@@ -1,0 +1,54 @@
+.add-training-form{
+    display: flex;
+    flex-direction: column;
+    margin: 2em 20em;
+    gap: 0.5;
+    border: 1px solid black;
+    padding: 3em 10em 2em 10em;
+    height: 100%;
+}
+.label-form{
+    margin: 1em 0 0.1em 0.2em;
+}
+.form-title{
+    align-self: center;
+}
+.submit-training-btn{
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 2em;
+    width: 30%;
+    height: 3em;
+    align-self: center;
+}
+.input-add-training{
+    height: 3em;
+    border-radius: 10px;
+    padding: 1em;
+}
+.input-exercise{
+    width: 100%;
+}
+.input-add-exercise{
+    width: 90%;
+}
+.add-exercise-btn:hover{
+    cursor: pointer;
+}
+.exercise-item{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 0.7em;
+    margin-top: 2em;
+}
+.delete-exercise-btn{
+    margin-bottom: 5px;
+}
+.delete-exercise-btn:hover{
+    cursor: pointer;
+}
+.exercises-list{
+    margin-top: 1em;
+    padding: 0;
+}
