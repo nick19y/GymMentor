@@ -1,4 +1,4 @@
-.add-training-form{
+.add-exercise-form{
     display: flex;
     flex-direction: column;
     margin: 2em 20em;
@@ -14,7 +14,7 @@
 .form-title{
     align-self: center;
 }
-.submit-training-btn{
+.submit-exercise-btn{
     background-color: white;
     border-radius: 20px;
     margin-top: 2em;
@@ -22,7 +22,7 @@
     height: 3em;
     align-self: center;
 }
-.input-add-training{
+.input-add-exercise{
     height: 3em;
     border-radius: 10px;
     padding: 1em;

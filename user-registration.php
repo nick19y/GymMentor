@@ -22,7 +22,7 @@
         <div class="user-register">
             <img src="/img/logo.jpg" alt="Logo do site">
             <h1>GymMentor</h1>
-            <form action="login.html" class="register-form">
+            <form action="index.php" class="register-form">
                 <label for="name" class="register-label">Nome:</label>
                 <input name="name" type="text" class="user-register-input">
                 <label for="email" class="register-label">Email:</label>

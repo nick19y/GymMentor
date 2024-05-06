@@ -10,11 +10,11 @@ const inputAddExercise = document.querySelector(".input-add-exercise");
 let exercises = [];
 
 logo.addEventListener("click", ()=>{
-    window.location.href = "main.html"
+    window.location.href = "main.php"
 });
 
 logout.addEventListener("click", ()=>{
-    window.location.href = "login.html"
+    window.location.href = "index.php"
 });
 
 addTrainingForm.addEventListener("submit", function(event){    
