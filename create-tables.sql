@@ -2,8 +2,7 @@ use GymMentor;
 CREATE TABLE gym_workouts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    level VARCHAR(255) NOT NULL,
-    img VARCHAR(255)
+    level VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE gym_exercises (

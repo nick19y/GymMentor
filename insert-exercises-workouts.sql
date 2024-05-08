@@ -1,7 +1,7 @@
-INSERT INTO gym_workouts (name, level, img) VALUES 
-('Treino de Pernas', 'avançado', 'logo.jpg'),
-('Treino de Peito e Tríceps', 'intermediário', 'logo.jpg'),
-('Treino de Costas e Bíceps', 'iniciante', 'logo.jpg');
+INSERT INTO gym_workouts (name, level) VALUES 
+('Treino de Pernas', 'avançado'),
+('Treino de Peito e Tríceps', 'intermediário'),
+('Treino de Costas e Bíceps', 'iniciante');
 
 INSERT INTO gym_exercises (name, description, repetitions) VALUES
 ('Agachamento Livre', 'Agachamento com barra nas costas', 10),

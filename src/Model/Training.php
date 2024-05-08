@@ -2,17 +2,15 @@
 
 class Training
 {
-    private int $id;
+    private ?int $id;
     private string $name;
     private string $level;
-    private string $img;
 
-    public function __construct(int $id, string $name, string $level,  string $img)
+    public function __construct(?int $id, string $name, string $level)
     {
         $this->id = $id;
         $this->name = $name;
         $this->level = $level;
-        $this->img = $img;
     }
 
     public function getId(){
@@ -23,8 +21,5 @@ class Training
     }
     public function getLevel(){
         return $this->level;
-    }
-    public function getImg(){
-        return $this->img;
     }
 }

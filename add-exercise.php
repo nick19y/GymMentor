@@ -1,3 +1,16 @@
+<?php
+    require_once "src/connection.php";
+    require_once "src/Model/Exercises.php";
+    require_once "src/Repository/ExerciseRepository.php";
+
+    $exerciseRepository = new ExerciseRepository($pdo);
+
+    if($_SERVER["REQUEST_METHOD"]=="POST"){
+        $exercise = new Exercise(null, $_POST['exercise-name'], $_POST['repetitions'], $_POST['description'], $_POST['weight']);
+        $exerciseRepository->createExercise($exercise);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -31,12 +44,14 @@
         </div>
     </header>
     <main>
-        <form action="main.php" class="add-exercise-form">
+        <form action="" class="add-exercise-form" method="post">
             <h2 class="form-title">Adicionar exercício</h2>        
             <label class="label-form" for="exercise-name">Nome:</label>
             <input required class="input-add-exercise" type="text" name="exercise-name">
             <label class="label-form" for="repetitions">Repetições:</label>
             <input required class="input-add-exercise" type="number" name="repetitions">
+            <label class="label-form" for="weight">Peso (Kg):</label>
+            <input required class="input-add-exercise" type="number" name="weight">
             <label class="label-form" for="description">Descrição:</label>
             <textarea id="description" name="description" rows="4" cols="30"></textarea>
             <div id="exercises-container">

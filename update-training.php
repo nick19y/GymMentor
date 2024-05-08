@@ -2,19 +2,17 @@
     require_once "src/connection.php";
     require_once "src/Model/Training.php";
     require_once "src/Repository/TrainingRepository.php";
-    require_once "src/Model/Exercises.php";
-    require_once "src/Repository/ExerciseRepository.php";
 
     $trainingRepository = new TrainingRepository($pdo);
-    $exerciseRepository = new ExerciseRepository($pdo);
-
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $training = new Training(null, $_POST['training-name'], $_POST['training-level']);
-        $trainingRepository->createTraining($training);
-        $exercise = new Exercise(null, $_POST['exercise-name'], $_POST['repetitions'], $_POST['weight']);
-        $exerciseRepository->createExercise($exercise);
+        $training = new Training($_POST['id'], $_POST['name'], $_POST['level']);
+        $trainingRepository->updateTraining($training);
         header("Location: main.php");
+    } else{
+        $training = $trainingRepository->readTraining($_GET['id']);
     }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -47,12 +45,12 @@
     </header>
     <main>
         <form class="add-training-form" method="post">
-            <h2 class="form-title">Adicionar treino</h2>
-            <label class="label-form" for="training-name">Nome:</label>
-            <input required class="input-add-training" type="text" name="training-name">
-            <label class="label-form" for="training-level">Nível:</label>
-            <input required class="input-add-training" type="text" name="training-level">
-            <h2 class="form-title form-add-exercise">Adicionar Exercícios</h2>
+            <h2 class="form-title">Atualizar treino</h2>        
+            <label class="label-form" for="name">Nome:</label>
+            <input required class="input-add-training" type="text" value="<?= $training->getName() ?>" name="name">
+            <label class="label-form" for="level">Nível:</label>
+            <input required class="input-add-training" type="text" value="<?= $training->getLevel() ?>" name="level">
+            <h2 class="form-title form-add-exercise">Atualizar Exercícios</h2>
             <label for="exercise-name">Nome:</label>
             <input class="input-add-training input-add-exercise" type="text" name="exercise-name" id="exercise-input">
             <div class="input-exercise">
@@ -71,9 +69,9 @@
                 <ul class="exercises-list">
                 </ul>
             </div>
-            <button type="submit" name="register-training" value="submit" class="submit-training-btn">Adicionar treino</button>
+            <input type="hidden" name="id" value="<?= $training->getId()?>">
+            <button type="submit" name="register-training" value="submit" class="submit-training-btn">Atualizar treino</button>
         </form>
-        <ul id="suggestionsList"></ul>
     </main>
 </body>
 </html>

@@ -1,19 +1,19 @@
 <?php
 
-class Exercises
+class Exercise
 {
-    private int $id;
+    private ?int $id;
     private string $name;
-    private string $description;
     private int $repetitions;
+    private float $weight;
 
 
-    public function __construct(int $id, string $name, string $description,  string $repetitions)
+    public function __construct(?int $id, string $name,  int $repetitions, float $weight)
     {
         $this->id = $id;
         $this->name = $name;
-        $this->$description = $description;
         $this->repetitions = $repetitions;
+        $this->weight = $weight;
     }
 
     public function getId(){
@@ -22,10 +22,10 @@ class Exercises
     public function getName(){
         return $this->name;
     }
-    public function getDescription(){
-        return $this->description;
-    }
     public function getRepetitions(){
         return $this->repetitions;
+    }
+    public function getWeight(){
+        return $this->weight;
     }
 }
