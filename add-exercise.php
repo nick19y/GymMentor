@@ -6,7 +6,7 @@
     $exerciseRepository = new ExerciseRepository($pdo);
 
     if($_SERVER["REQUEST_METHOD"]=="POST"){
-        $exercise = new Exercise(null, $_POST['exercise-name'], $_POST['repetitions'], $_POST['description'], $_POST['weight']);
+        $exercise = new Exercise(null, $_POST['exercise-name'], $_POST['repetitions'], $_POST['weight'], $_POST['description'],);
         $exerciseRepository->createExercise($exercise);
     }
 ?>
@@ -45,7 +45,7 @@
     </header>
     <main>
         <form action="" class="add-exercise-form" method="post">
-            <h2 class="form-title">Adicionar exercício</h2>        
+            <h3 class="form-title">Adicionar exercício</h3>        
             <label class="label-form" for="exercise-name">Nome:</label>
             <input required class="input-add-exercise" type="text" name="exercise-name">
             <label class="label-form" for="repetitions">Repetições:</label>

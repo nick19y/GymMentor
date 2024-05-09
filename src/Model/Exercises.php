@@ -6,14 +6,16 @@ class Exercise
     private string $name;
     private int $repetitions;
     private float $weight;
+    private string $description;
 
 
-    public function __construct(?int $id, string $name,  int $repetitions, float $weight)
+    public function __construct(?int $id, string $name,  int $repetitions, float $weight, string $description)
     {
         $this->id = $id;
         $this->name = $name;
         $this->repetitions = $repetitions;
         $this->weight = $weight;
+        $this->description = $description;
     }
 
     public function getId(){
@@ -27,5 +29,8 @@ class Exercise
     }
     public function getWeight(){
         return $this->weight;
+    }
+    public function getDescription(){
+        return $this->description;
     }
 }

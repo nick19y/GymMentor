@@ -1,7 +1,7 @@
 .add-exercise-form{
     display: flex;
     flex-direction: column;
-    margin: 1em 20em;
+    margin: 2em 20em;
     gap: 0.5;
     border: 1px solid black;
     border-radius: 30px;
@@ -52,7 +52,4 @@
 .exercises-list{
     margin-top: 1em;
     padding: 0;
-}
-.form-add-exercise{
-    margin-top: 1.5em;
 }

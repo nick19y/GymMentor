@@ -13,6 +13,7 @@
 }
 .form-title{
     align-self: center;
+    margin-top: 1em;
 }
 .submit-training-btn{
     background-color: white;
@@ -27,11 +28,11 @@
     border-radius: 10px;
     padding: 1em;
 }
-.input-add-exercise{
+.input-exercise{
     width: 100%;
 }
-.add-exercise-btn{
-    margin-top: 5%;
+.input-add-exercise{
+    width: 90%;
 }
 .add-exercise-btn:hover{
     cursor: pointer;
@@ -39,12 +40,9 @@
 .exercise-item{
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 15px;
-    margin-top: 1em;
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 0.5em 1em;
+    margin-bottom: 0.7em;
+    margin-top: 2em;
 }
 .delete-exercise-btn{
     margin-bottom: 5px;
@@ -56,15 +54,23 @@
     margin-top: 1em;
     padding: 0;
 }
-.form-add-exercise{
-    margin-top: 1.5em;
+.register-training{
+    align-self: center;
 }
-.input-exercise-details{
-    width: 30%;
-}
-.input-exercise{
-    width: 100%;
+.exercises{
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.exercise-item{
+    border: 1px solid black;
+    border-radius: 20px;
+    display: flex;
     justify-content: space-between;
+    padding: 0.5em 2em;
+    height: 20%;
+    font-size: 5px;
+}
+.exercises-container{
+    border: 1px solid black;
 }

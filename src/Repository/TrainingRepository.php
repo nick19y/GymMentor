@@ -60,4 +60,11 @@ class TrainingRepository
         $statement->bindValue(3, $training->getId());
         $statement->execute();
     }
+    public function insertTraining(Training $training, Exercise $exercise)
+    {
+        $sql = "INSERT INTO workout_exercises (workout_id, exercise_id) VALUES (?, ?)";
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(1, $training->getId());
+        $statement->bindValue(2, $exercise->getId());
+    }
 }
