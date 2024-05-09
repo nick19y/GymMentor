@@ -12,6 +12,8 @@
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $training = new Training(null, $_POST['training-name'], $_POST['training-level']);
+        var_dump($training->getId());
+        exit();
         $trainingRepository->createTraining($training);
         $exerciseRepository->createExercise($exercise);
         header("Location: main.php");
