@@ -60,7 +60,6 @@
 .exercises{
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
 }
 .exercise-item{
     border: 1px solid black;
@@ -73,4 +72,5 @@
 }
 .exercises-container{
     border: 1px solid black;
+    min-height: 5em;
 }

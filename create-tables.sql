@@ -9,7 +9,8 @@ CREATE TABLE gym_exercises (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
-    repetitions INT
+    repetitions INT,
+    weight FLOAT
 );
 
 CREATE TABLE workout_exercises (

@@ -31,4 +31,12 @@ class ExerciseRepository
         }, $exercisesList);
         return $dataExercises;
     }
+    public function addExercise(Training $training, Exercise $exercise)
+    {
+        $sql = "INSERT INTO workout_exercises (workout_id, exercise_id) VALUES (?,?)";
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(1, $training->getId());
+        $statement->bindValue(2, $exercise->getId());
+        // arrumar uma forma de pegar os ids pelo php no front
+    }
 }
