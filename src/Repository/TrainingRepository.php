@@ -67,4 +67,11 @@ class TrainingRepository
         $statement->bindValue(1, $training->getId());
         $statement->bindValue(2, $exercise->getId());
     }
+    public function getLastIdTraining()
+    {
+        $sql = "SELECT id AS last_id FROM gym_workouts ORDER BY id DESC LIMIT 1";
+        $statement = $this->pdo->query($sql);
+        $lastId = $statement->fetch(PDO::FETCH_ASSOC)['last_id'];
+        return $lastId;
+    }
 }

@@ -10,6 +10,12 @@
 
     $dataExercises = $exerciseRepository->readExercises();
 
+
+    $lastIdTraining = $trainingRepository->getLastIdTraining();
+    $newId = $lastIdTraining + 1;
+    var_dump($newId);
+    //funciona esse parametro
+
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $training = new Training(null, $_POST['training-name'], $_POST['training-level']);
         var_dump($training->getId());
@@ -59,18 +65,21 @@
                 <ul class="exercises-container">
                 </ul>
             </div>
+            <button type="submit" name="register-training" value="submit" class="submit-training-btn">Adicionar treino</button>
+        </form>
+        <form action="exercise.php" method="post">
             <ul class="exercises">
                 <?php foreach ($dataExercises as $exercise):?>
                 <li class="exercise-item">
                     <h4><?= $exercise->getName() ?></h4>
-                    <input type="hidden" name="exercise-id" value="<?= $exercise->getId()?>">
-                    <div class="add-exercise-btn">
+                    <button type="submit" class="add-exercise-btn">
+                        <input type="hidden" name="exercise-id" value="<?= $exercise->getId()?>">
+                        <input type="hidden" name="new-id" value="<?= $newId?>">
                         <img src="/img/add.png" alt="">
-                    </div>
+                    </button>
                 </li>
                 <?php endforeach;?>
             </ul>
-            <button type="submit" name="register-training" value="submit" class="submit-training-btn">Adicionar treino</button>
         </form>
             <!-- quando eu clicar no botao, quero que serja executado o métodoaddExercise do exerciseRepository -->
             <!-- fou fazer um select com inner join para buscar os dados dessa tabela por meio do id da tabela de relacionamento -->

@@ -31,12 +31,14 @@ class ExerciseRepository
         }, $exercisesList);
         return $dataExercises;
     }
-    public function addExercise(Training $training, Exercise $exercise)
+    public function addExercise(int $idTraining, int $idExercise)
     {
         $sql = "INSERT INTO workout_exercises (workout_id, exercise_id) VALUES (?,?)";
         $statement = $this->pdo->prepare($sql);
-        $statement->bindValue(1, $training->getId());
-        $statement->bindValue(2, $exercise->getId());
+        $statement->bindValue(1, $idTraining);
+        $statement->bindValue(2, $idExercise);
+        $statement->execute();
         // arrumar uma forma de pegar os ids pelo php no front
+        // o problema aqui é que eu não tenho ainda o valor do is do treino, que é um autoincrement do banco de dados
     }
 }

@@ -19,3 +19,6 @@ CREATE TABLE workout_exercises (
     FOREIGN KEY (workout_id) REFERENCES gym_workouts(id),
     FOREIGN KEY (exercise_id) REFERENCES gym_exercises(id)
 );
+select* from gym_exercises;
+select* from workout_exercises;
+SELECT id FROM gym_workouts ORDER BY id DESC LIMIT 1;
