@@ -43,11 +43,25 @@ class ExerciseRepository
     }
     public function listExercise(int $idTraining)
     {
-        $sql = "SELECT * FROM gym_exercises
+        $sql = "SELECT gym_exercises.name, gym_exercises.description, gym_exercises.repetitions, gym_exercises.weight
+        FROM gym_exercises
         INNER JOIN workout_exercises ON gym_exercises.id = workout_exercises.exercise_id
         INNER JOIN gym_workouts ON workout_exercises.workout_id = gym_workouts.id
         WHERE gym_workouts.id = ?";
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue(1, $idTraining);
+        $statement->execute();
+        $exercisesTraining = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        // return $exercisesTraining;
+
+        $exercisesTrainingData = array_map(function($exercise){
+            return $this->makeObject($exercise);
+        }, $exercisesTraining);
+        return $exercisesTrainingData;
+
+        // como tem campo duplicado de name na consulta, o name de uma tabela interfere na outra
+        // por isso, quando é listado um novo exercicio ele vem com o nome do treino
+        // corrigir isso fazendo um select dos campos específicos
     }
 }

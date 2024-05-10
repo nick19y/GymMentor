@@ -6,4 +6,4 @@
     $exerciseId = $_POST['exercise-id'];
     $newId = $_POST['new-id'];
     $exerciseRepository->addExercise($newId, $exerciseId);
-    header("Location: add-training.php");
+    header("Location: add-exercise-training.php");

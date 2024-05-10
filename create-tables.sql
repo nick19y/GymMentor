@@ -31,4 +31,4 @@ SET SQL_SAFE_UPDATES = 0;
 SELECT * FROM gym_exercises
 INNER JOIN workout_exercises ON gym_exercises.id = workout_exercises.exercise_id
 INNER JOIN gym_workouts ON workout_exercises.workout_id = gym_workouts.id
-WHERE gym_workouts.id = 1;
+WHERE gym_workouts.id = 18;

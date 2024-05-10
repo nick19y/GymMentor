@@ -16,7 +16,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $training = new Training(null, $_POST['training-name'], $_POST['training-level']);
         $trainingRepository->createTraining($training);
-        header("Location: main.php");
+        header("Location: add-exercise-training.php");
     }
 ?>
 
@@ -54,43 +54,8 @@
             <input required class="input-add-training" type="text" name="training-name">
             <label class="label-form" for="training-level">Nível:</label>
             <input required class="input-add-training" type="text" name="training-level">
-            <h2 class="form-title form-add-exercise">Adicionar Exercícios</h2>
-            <div class="list-exercises">
-                <ul class="exercises-container">
-                <li class="exercise-item">
-                    <h4><?= $exercise->getName() ?></h4>
-                    <h4><?= $exercise->getId() ?></h4>
-                    <form action="exercise.php" method="post">
-                    <button type="submit" class="add-exercise-btn">
-                        <input type="hidden" name="exercise-id" value="<?= $exercise->getId()?>">
-                        <input type="hidden" name="new-id" value="<?= $lastIdTraining?>">
-                        <img src="/img/add.png" alt="">
-                    </button>
-                    </form>
-                </li>    
-                </ul>
-            </div>
             <button type="submit" name="register-training" value="submit" class="submit-training-btn">Adicionar treino</button>
         </form>
-        <ul class="exercises">
-            <?php foreach ($dataExercises as $exercise):?>
-                <li class="exercise-item">
-                    <h4><?= $exercise->getName() ?></h4>
-                    <h4><?= $exercise->getId() ?></h4>
-                    <form action="exercise.php" method="post">
-                    <button type="submit" class="add-exercise-btn">
-                        <input type="hidden" name="exercise-id" value="<?= $exercise->getId()?>">
-                        <input type="hidden" name="new-id" value="<?= $lastIdTraining?>">
-                        <img src="/img/add.png" alt="">
-                    </button>
-                    </form>
-                </li>
-                <?php endforeach;?>
-            </ul>
-            <!-- quando eu clicar no botao, quero que serja executado o métodoaddExercise do exerciseRepository -->
-            <!-- fou fazer um select com inner join para buscar os dados dessa tabela por meio do id da tabela de relacionamento -->
-            <!-- uma solução boa e simples seria listar todos os exercícios aqui e ao clicar em cada um, adicioná-los ao treino -->
-            <!-- eu posso criar o treino e inserir os valores em um só post -->
-        </main>
-    </body>
+    </main>
+</body>
 </html>

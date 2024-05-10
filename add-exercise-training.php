@@ -10,16 +10,14 @@
 
     $dataExercises = $exerciseRepository->readExercises();
 
-    // $exercisesTraining = $exerciseRepository->listExercise();
     
     $lastIdTraining = $trainingRepository->getLastIdTraining();
     $newId = $lastIdTraining + 1;
+    
+    $exercisesTraining = $exerciseRepository->listExercise($lastIdTraining);
 
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $training = new Training(null, $_POST['training-name'], $_POST['training-level']);
-        $trainingRepository->createTraining($training);
-        header("Location: main.php");
-    }
+    // var_dump($exercisesTraining);
+    // exit();
 ?>
 
 
@@ -57,6 +55,13 @@
             <div class="add-exercises-form">
                 <h1  class="form-title">Adicionar Exercícios</h1>
                 <div class="exercises-list-training">
+                    <?php foreach($exercisesTraining as $item):?>
+                        <li class="exercise-item">
+                        <h4><?= $item->getName() ?></h4>
+                        <!-- <h4><?= $item->getId() ?></h4> -->
+                        </li>
+                    <?php endforeach;?>
+                        
                 </div>
                 <ul class="exercises">
             <?php foreach ($dataExercises as $exercise):?>
