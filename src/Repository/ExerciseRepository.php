@@ -41,4 +41,13 @@ class ExerciseRepository
         // arrumar uma forma de pegar os ids pelo php no front
         // o problema aqui é que eu não tenho ainda o valor do is do treino, que é um autoincrement do banco de dados
     }
+    public function listExercise(int $idTraining)
+    {
+        $sql = "SELECT * FROM gym_exercises
+        INNER JOIN workout_exercises ON gym_exercises.id = workout_exercises.exercise_id
+        INNER JOIN gym_workouts ON workout_exercises.workout_id = gym_workouts.id
+        WHERE gym_workouts.id = ?";
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(1, $idTraining);
+    }
 }

@@ -1,0 +1,24 @@
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-title{
+    align-self: center;
+    margin-bottom: 1em;
+}
+.add-exercises-form{
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 2em 4em;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self: center;
+}
+.exercises-list-training{
+    padding: 2em;
+    border: 1px solid black;
+    min-height: 5em;
+}
