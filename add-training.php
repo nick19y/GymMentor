@@ -67,20 +67,21 @@
             </div>
             <button type="submit" name="register-training" value="submit" class="submit-training-btn">Adicionar treino</button>
         </form>
-        <form action="exercise.php" method="post">
-            <ul class="exercises">
-                <?php foreach ($dataExercises as $exercise):?>
+        <ul class="exercises">
+            <?php foreach ($dataExercises as $exercise):?>
                 <li class="exercise-item">
                     <h4><?= $exercise->getName() ?></h4>
+                    <h4><?= $exercise->getId() ?></h4>
+                    <form action="exercise.php" method="post">
                     <button type="submit" class="add-exercise-btn">
                         <input type="hidden" name="exercise-id" value="<?= $exercise->getId()?>">
                         <input type="hidden" name="new-id" value="<?= $newId?>">
                         <img src="/img/add.png" alt="">
                     </button>
+                    </form>
                 </li>
                 <?php endforeach;?>
             </ul>
-        </form>
             <!-- quando eu clicar no botao, quero que serja executado o métodoaddExercise do exerciseRepository -->
             <!-- fou fazer um select com inner join para buscar os dados dessa tabela por meio do id da tabela de relacionamento -->
             <!-- uma solução boa e simples seria listar todos os exercícios aqui e ao clicar em cada um, adicioná-los ao treino -->

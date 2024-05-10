@@ -5,10 +5,5 @@
     $exerciseRepository = new ExerciseRepository($pdo);
     $exerciseId = $_POST['exercise-id'];
     $newId = $_POST['new-id'];
-    
     $exerciseRepository->addExercise($newId, $exerciseId);
-
-
-    if($exerciseRepository){
-        ECHO "FUNCIONA";
-    }
+    header("Location: add-training.php");
