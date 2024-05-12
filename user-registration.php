@@ -22,20 +22,13 @@
         <div class="user-register">
             <img src="/img/logo.jpg" alt="Logo do site">
             <h1>GymMentor</h1>
-            <form action="index.php" class="register-form">
+            <form action="create-user.php" class="register-form" method="post">
                 <label for="name" class="register-label">Nome:</label>
                 <input name="name" type="text" class="user-register-input">
                 <label for="email" class="register-label">Email:</label>
                 <input name="email" type="email" class="user-register-input">
                 <label for="password" class="register-label">Senha:</label>
                 <input name="password" type="password" class="user-register-input">
-                <label for="gender" class="register-label">Gênero</label>
-                <div class="radio-inputs">
-                    <input name="gender" id="masculino" type="radio" value="masculino" class="user-register-input" checked>
-                    <label for="masculino" class="register-label">Masculino</label>
-                    <input name="gender" id="feminino" type="radio" value="feminino" class="user-register-input">
-                    <label for="feminino" class="register-label">Feminino</label>
-                </div>
                 <button class="register-user-btn">Cadastrar usuário</button>
             </form>
         </div>

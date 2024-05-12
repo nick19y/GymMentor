@@ -119,3 +119,10 @@
     padding: 2em;
     margin-bottom: 2em;
 }
+.btn-hidden{
+    background-color: white;
+    border: none;
+}
+.create-training-btn{
+    padding: 1em 0;
+}

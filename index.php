@@ -21,11 +21,11 @@
         <div class="login-div">
             <img src="/img/logo.jpg" alt="Logo do site">
             <h1>GymMentor</h1>
-            <form action="main.php" class="login-form">
+            <form action="login.php" class="login-form" method="post">
                 <label class="login-label" for="email">Email:</label>
-                <input class="login-input" type="email">
+                <input class="login-input" type="email" name="email">
                 <label class="login-label" for="password">Senha:</label>
-                <input class="login-input" type="password">
+                <input class="login-input" type="password" name="password">
                 <button class="login-btn" type="submit">Entrar</button>
             </form>
             <p>Não tem uma conta? <a href="user-registration.php">Cadastre-se!</a></p>

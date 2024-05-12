@@ -71,3 +71,7 @@
     padding: 0.5em;
     margin-bottom: 1.5em;
 }
+.logout-btn{
+    background-color: white;
+    border: none;
+}

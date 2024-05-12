@@ -65,7 +65,4 @@ class ExerciseRepository
         $statement->bindValue(2, $idExercise);
         $statement->execute();
     }
-    public function updateExercise(){
-        
-    }
 }

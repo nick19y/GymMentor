@@ -74,4 +74,16 @@ class TrainingRepository
         $lastId = $statement->fetch(PDO::FETCH_ASSOC)['last_id'];
         return $lastId;
     }
+    public function countAmountExercises($id)
+    {
+        $sql = "SELECT workout_id, COUNT(exercise_id) AS total_exercises
+                FROM workout_exercises
+                WHERE workout_id = ?
+                GROUP BY workout_id";
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(1, $id);
+        $statement->execute();
+        $amountExercises = $statement->fetch(PDO::FETCH_ASSOC);
+        return $amountExercises['total_exercises'];
+    }
 }

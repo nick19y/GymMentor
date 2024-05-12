@@ -15,11 +15,12 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/add-training.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="js/navigation.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
     <title>GymMentor</title>
 </head>
 <body>
-    <header class="main-header">
+<header class="main-header">
         <div class="logo">
             <img src="/img/logo3.png" alt="Logo do site">
             <h3>GymMentor</h3>
@@ -27,10 +28,17 @@
         <div class="right-side-header">
             <div class="addTrainingPlan">
                 <a href="add-training.php">
+                    <img src="/img/list.png" alt="Adicionar exercício">
+                </a>
+                <a href="add-exercise.php">
                     <img src="/img/add-halter.png" alt="Adicionar exercício">
                 </a>
             </div>
-            <h4 class="logout">Sair</h4>
+            <form action="logout.php">
+                <button type="submit" class="logout-btn">
+                    <h4 class="logout">Sair</h4>
+                </button>
+            </form>
         </div>
     </header>
     <main>
@@ -43,7 +51,7 @@
                 </div>
                 <div class="trainig-details">
                     <p>Nível: <?= $training->getLevel()?></p>
-                    <p>Quantidade de exercícios: 10</p>
+                    <p>Quantidade de exercícios: <?= $trainingRepository->countAmountExercises($training->getId()) ?></p>
                 </div>
                 <a href="update-training.php?id=<?= $training->getId()?>">
                     <button class="select-training-btn">Atualizar treino</button>
