@@ -2,8 +2,13 @@
     require_once "src/connection.php";
     require_once "src/Model/Training.php";
     require_once "src/Repository/TrainingRepository.php";
+    require_once "src/Model/Exercises.php";
+    require_once "src/Repository/ExerciseRepository.php";
 
+    
     $trainingRepository = new TrainingRepository($pdo);
+    $exerciseRepository = new ExerciseRepository($pdo);
+    $dataExercises = $exerciseRepository->readExercises();
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $training = new Training($_POST['id'], $_POST['name'], $_POST['level']);
         $trainingRepository->updateTraining($training);
@@ -11,6 +16,8 @@
     } else{
         $training = $trainingRepository->readTraining($_GET['id']);
     }
+
+    $exercisesTraining = $exerciseRepository->listExercise($training->getId());
 
 
 ?>
@@ -44,34 +51,44 @@
         </div>
     </header>
     <main>
-        <form class="add-training-form" method="post">
+        <form class="add-training-form" method="post" id="update-form" name="update-form">
             <h2 class="form-title">Atualizar treino</h2>        
             <label class="label-form" for="name">Nome:</label>
+            <input type="hidden" name="id" value="<?= $training->getId() ?>">
             <input required class="input-add-training" type="text" value="<?= $training->getName() ?>" name="name">
             <label class="label-form" for="level">Nível:</label>
             <input required class="input-add-training" type="text" value="<?= $training->getLevel() ?>" name="level">
-            <h2 class="form-title form-add-exercise">Atualizar Exercícios</h2>
-            <label for="exercise-name">Nome:</label>
-            <input class="input-add-training input-add-exercise" type="text" name="exercise-name" id="exercise-input">
-            <div class="input-exercise">
-                <div class="input-exercise-details">
-                    <label class="label-form" for="repetitions">Repetições:</label>
-                    <input required class="input-add-training input-add-exercise" type="number" name="repetitions">
-                </div>
-                <div class="input-exercise-details">
-                    <label class="label-form" for="weight">Peso (Kg):</label>
-                    <input required class="input-add-training input-add-exercise" type="number" name="weight">
-                </div>
-                <img src="/img/add.png" alt="Adicionar exercício" class="add-exercise-btn">
-                <!-- <input class="input-add-training input-add-exercise" type="text" name="add-exercises" id="exercise-input"> -->
-            </div>
-            <div id="exercises-container">
-                <ul class="exercises-list">
-                </ul>
-            </div>
-            <input type="hidden" name="id" value="<?= $training->getId()?>">
             <button type="submit" name="register-training" value="submit" class="submit-training-btn">Atualizar treino</button>
-        </form>
+            <h2 class="form-title form-add-exercise">Atualizar Exercícios</h2>
+            <div class="add-exercises-form">
+            </form>
+            <div class="exercises-list-training">
+                <?php foreach($exercisesTraining as $item):?>
+                    <form action="delete-exercise-update.php" method="GET" id="delete-form-<?= $item->getId() ?>" name="delete-form">
+                        <li class="exercise-item">
+                            <h4><?= $item->getName() ?></h4>
+                            <button type="submit" class="btn-exercise-form" form="delete-form-<?= $item->getId() ?>">
+                                <input type="hidden" name="exercise-id" value="<?= $item->getId() ?>">
+                                <input type="hidden" name="id" value="<?= $training->getId() ?>">
+                                <img src="/img/less.png" alt="">
+                            </button>
+                        </li>
+                    </form>
+                <?php endforeach;?>
+            </div>
+                <?php foreach ($dataExercises as $exercise):?>
+                <li class="exercise-item">
+                    <h4><?= $exercise->getName() ?></h4>
+                    <h4><?= $exercise->getId() ?></h4>
+                    <form action="add-exercise-update.php" method="get">
+                    <button type="submit" class="add-exercise-btn btn-exercise-form">
+                        <input type="hidden" name="exercise-id" value="<?= $exercise->getId()?>">
+                        <img src="/img/add.png" alt="">
+                        <input type="hidden" name="id" value="<?= $training->getId() ?>">
+                    </button>
+                    </form>
+                </li>
+                <?php endforeach;?>
     </main>
 </body>
 </html>

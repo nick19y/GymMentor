@@ -22,3 +22,18 @@
     border: 1px solid black;
     min-height: 5em;
 }
+.btn-exercise-form{
+    background-color: white;
+    border: none;
+}
+.create-training-btn{
+    display: flex;
+    background-color: white;   
+    width: 40%;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}

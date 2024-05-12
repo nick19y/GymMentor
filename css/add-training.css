@@ -74,3 +74,48 @@
     border: 1px solid black;
     min-height: 5em;
 }
+.update-training-div{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.exercises-list-training{
+    border: none;
+}
+.form-title2{
+    align-self: center;
+    margin-top: 1em;   
+}
+.exercise-item{
+    padding: 1em 2em;
+}
+.submit-update{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add-training-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-training-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-exercises-form {
+    order: 1;
+}
+
+.submit-training-btn {
+    order: 2;
+}
+.exercises-list-training{
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 2em;
+    margin-bottom: 2em;
+}

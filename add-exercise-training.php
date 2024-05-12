@@ -15,9 +15,13 @@
     $newId = $lastIdTraining + 1;
     
     $exercisesTraining = $exerciseRepository->listExercise($lastIdTraining);
-
-    // var_dump($exercisesTraining);
-    // exit();
+    $trainingRepository = new TrainingRepository($pdo);
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $training = new Training($_POST['id'], $_POST['name'], $_POST['level']);
+        $trainingRepository->updateTraining($training);
+    } else{
+        $training = $trainingRepository->readTraining($lastIdTraining);
+    }
 ?>
 
 
@@ -51,17 +55,21 @@
     </header>
     <main>
         <div class="form">
-
             <div class="add-exercises-form">
                 <h1  class="form-title">Adicionar Exercícios</h1>
                 <div class="exercises-list-training">
                     <?php foreach($exercisesTraining as $item):?>
-                        <li class="exercise-item">
-                        <h4><?= $item->getName() ?></h4>
-                        <!-- <h4><?= $item->getId() ?></h4> -->
-                        </li>
-                    <?php endforeach;?>
-                        
+                        <form action="delete-exercise.php" method="post">
+                            <li class="exercise-item">
+                                <h4><?= $item->getName() ?></h4>
+                                <button type="submit" class="btn-exercise-form">
+                                <input type="hidden" name="exercise-id" value="<?= $item->getId()?>">
+                                <input type="hidden" name="id-training" value="<?= $training->getId()?>">
+                                    <img src="/img/less.png" alt="">
+                                </button>
+                            </li>
+                        </form>
+                            <?php endforeach;?>
                 </div>
                 <ul class="exercises">
             <?php foreach ($dataExercises as $exercise):?>
@@ -69,7 +77,7 @@
                     <h4><?= $exercise->getName() ?></h4>
                     <h4><?= $exercise->getId() ?></h4>
                     <form action="exercise.php" method="post">
-                    <button type="submit" class="add-exercise-btn">
+                    <button type="submit" class="add-exercise-btn btn-exercise-form">
                         <input type="hidden" name="exercise-id" value="<?= $exercise->getId()?>">
                         <input type="hidden" name="new-id" value="<?= $lastIdTraining?>">
                         <img src="/img/add.png" alt="">
@@ -77,7 +85,12 @@
                     </form>
                 </li>
                 <?php endforeach;?>
-            </ul>
+                <form action="main.php">
+                    </ul>
+                    <button type="submit" class="create-training-btn">
+                        Criar treino
+                    </button>
+                    </form>
             </div>
         </div>
     </main>
